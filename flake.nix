@@ -53,6 +53,11 @@
         inherit pkgs;
         modules = [ ./users/juri/home.nix ];
       };
+
+      "juri" = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        modules = [ ./users/juri/home.nix ];
+      };
     };
   };
 }

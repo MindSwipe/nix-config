@@ -1,8 +1,8 @@
 {
-    config,
-    lib,
-    pkgs,
-    ...
+  config,
+  lib,
+  pkgs,
+  ...
 }:
 {
   options.homeModules.programs.vscode = {
@@ -35,6 +35,12 @@
       type = lib.types.bool;
       description = "Wether to a history graph instead of changes inside the SCM tab";
     };
+    additionalExtensions = lib.mkOption {
+      default = [ ];
+      example = [ ];
+      type = lib.types.listOf lib.types.package;
+      description = "Additional extensions that should be installed";
+    };
   };
 
   config = lib.mkIf config.homeModules.programs.vscode.enable {
@@ -42,9 +48,14 @@
       enable = true;
       enableUpdateCheck = false;
       enableExtensionUpdateCheck = false;
-      extensions = with pkgs; [
-        vscode-extensions.jnoortheen.nix-ide
-      ];
+      extensions = with pkgs;
+        [
+          # Diverse
+          vscode-extensions.tomoki1207.pdf
+          vscode-extensions.ms-azuretools.vscode-docker
+          vscode-extensions.ms-vscode.live-server
+        ]
+        ++ config.homeModules.programs.vscode.additionalExtensions;
     };
   };
 }

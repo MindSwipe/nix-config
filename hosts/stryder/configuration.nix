@@ -1,9 +1,10 @@
 {
-    imports = [
+  imports = [
       ./hardware.nix
 
       ../../nixosModules/dev
       ../../nixosModules/settings
+      ../../nixosModules/vpn
 
       ../../users/juri/juri.nix
   ];
@@ -50,8 +51,8 @@
   services.xserver.enable = true;
 
   # Enable the KDE Plasma DE.
-  services.xserver.displayManager.sddm.enable = true;
-  services.xserver.desktopManager.plasma6.enable = true;
+  services.displayManager.sddm.enable = true;
+  services.desktopManager.plasma6.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb = {
