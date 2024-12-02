@@ -3,7 +3,7 @@
   users.users.juri = {
     isNormalUser = true;
     name = "juri";
-    description = "Personal account";
+    description = "Juri Furer";
     useDefaultShell = true;
     extraGroups = [
       "networkmanager"
