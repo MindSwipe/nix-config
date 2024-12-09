@@ -12,7 +12,7 @@
   config = lib.mkIf config.homeModules.dev.nix.enable {
     home.packages = with pkgs; [
       nixfmt-rfc-style
-      nixd
+      nil
       deadnix
     ];
 

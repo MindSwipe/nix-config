@@ -42,7 +42,7 @@
       
       userSettings = {
         nix.enableLanguageServer = true;
-        nix.serverPath = "nixd";
+        nix.serverPath = "nil";
       };
     };
   };
