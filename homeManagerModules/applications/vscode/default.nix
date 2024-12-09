@@ -39,6 +39,11 @@
           vscode-extensions.ms-vscode.live-server
         ]
         ++ config.homeModules.programs.vscode.additionalExtensions;
+      
+      userSettings = {
+        nix.enableLanguageServer = true;
+        nix.serverPath = "nixd";
+      };
     };
   };
 }
