@@ -17,24 +17,7 @@
         "off"
       ];
     };
-    naturalLanguageSearch = lib.mkOption {
-      default = false;
-      example = false;
-      type = lib.types.bool;
-      description = "Wether to enable natural language search for options. Needs a Microsoft online service.";
-    };
-    scm.alwaysShowRepositories = lib.mkOption {
-      default = true;
-      example = true;
-      type = lib.types.bool;
-      description = "Wether to always show the repository inside the SCM tab";
-    };
-    scm.showHistoryGraph = lib.mkOption {
-      default = true;
-      example = true;
-      type = lib.types.bool;
-      description = "Wether to a history graph instead of changes inside the SCM tab";
-    };
+
     additionalExtensions = lib.mkOption {
       default = [ ];
       example = [ ];
