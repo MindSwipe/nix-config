@@ -24,6 +24,11 @@
       type = lib.types.listOf lib.types.package;
       description = "Additional extensions that should be installed";
     };
+
+    additionalUserSettings = lib.mkOption {
+      default = { };
+      description = "Additional user settings";
+    };
   };
 
   config = lib.mkIf config.homeModules.programs.vscode.enable {
@@ -41,9 +46,8 @@
         ++ config.homeModules.programs.vscode.additionalExtensions;
       
       userSettings = {
-        nix.enableLanguageServer = true;
-        nix.serverPath = "nil";
-      };
+
+      } // config.homeModules.programs.vscode.additionalUserSettings;
     };
   };
 }

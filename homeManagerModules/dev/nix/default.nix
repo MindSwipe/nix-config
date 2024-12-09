@@ -18,6 +18,10 @@
 
     homeModules.programs.vscode = {
       additionalExtensions = with pkgs; [ vscode-extensions.jnoortheen.nix-ide ];
+      additionalUserSettings = {
+        nix.enableLanguageServer = true;
+        nix.serverPath = "nil";
+      };
     };
   };
 }
