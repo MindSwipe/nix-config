@@ -16,6 +16,18 @@
     ../../users/juri/juri.nix
   ];
 
+  # Proprietary Nvidia drivers
+  hardware.nvidia = {
+    modesetting.enable = true;
+    powerManagement.enable = false;
+    powerManagement.finegrained = false;
+    open = false;
+    nvidiaSettings = true;
+
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
+  };
+
+
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
