@@ -46,6 +46,18 @@
           }
         ];
       };
+
+      "vanguard" = lib.nixosSystem {
+        system = "${system}";
+        modules = [
+          ./hosts/stryder/configuration.nix
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+          }
+        ];
+      };
     };
 
     homeConfigurations = {
