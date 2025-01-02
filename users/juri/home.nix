@@ -9,7 +9,7 @@
   home.homeDirectory = "/home/juri";
 
   home.packages = with pkgs; [
-
+    discord
   ];
 
   home.stateVersion = "24.05";
