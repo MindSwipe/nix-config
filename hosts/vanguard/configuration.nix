@@ -5,16 +5,22 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware.nix
+  imports = [
+    ./hardware.nix
 
-      ../../nixosModules/dev
-      ../../nixosModules/settings
-      ../../nixosModules/vpn
+    ../../nixosModules/dev
+    ../../nixosModules/settings
+    ../../nixosModules/vpn
 
-      ../../users/juri/juri.nix
-    ];
+    ../../users/juri/juri.nix
+  ];
+
+  boot.kernelPackages = pkgs.linuxPackagesFor (pkgs.linux_6_6.override {
+    argsOverride = rec {
+      version = "6.6.68";
+      modDirversion = "6.6.38";
+    };
+  });
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
