@@ -18,9 +18,13 @@
   boot.kernelPackages = pkgs.linuxPackagesFor (pkgs.linux_6_6.override {
     argsOverride = rec {
       version = "6.6.68";
-      modDirversion = "6.6.38";
+      modDirversion = "6.6.68";
     };
   });
+
+  filesystems."/boot" = {
+    options = [ "uid=0" "gid=0" "fmask=0077" "dmask=0077" ];
+  };
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
