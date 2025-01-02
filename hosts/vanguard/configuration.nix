@@ -8,16 +8,13 @@
   imports = [
     ./hardware.nix
 
-    ../../nixosModules/dev
-    ../../nixosModules/settings
-    ../../nixosModules/vpn
-    ../../nixosModules/discord
-    ../../nixosModules/nvidia
+    ../../nixosModules
 
     ../../users/juri/juri.nix
   ];
 
   modules.nvidia.enable = true;
+  modules.steam.enable = true;
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
