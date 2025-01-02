@@ -1,6 +1,12 @@
-{ pkgs, ...}:
+{ lib, config, pkgs, ...}:
 {
-  environment.systemPackages = with pkgs; [
-    discord
-  ];
+  options = {
+    modules.discord.enable = lib.mkEnableOption "Discord";
+  };
+
+  config = lib.mkIf config.modules.discord.enable {
+    environment.systemPackages = with pkgs; [
+      discord
+    ];
+  };
 }
