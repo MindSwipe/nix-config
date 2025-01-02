@@ -12,21 +12,12 @@
     ../../nixosModules/settings
     ../../nixosModules/vpn
     ../../nixosModules/discord
+    ../../nixosModules/nvidia
 
     ../../users/juri/juri.nix
   ];
 
-  # Proprietary Nvidia drivers
-  hardware.nvidia = {
-    modesetting.enable = true;
-    powerManagement.enable = false;
-    powerManagement.finegrained = false;
-    open = false;
-    nvidiaSettings = true;
-
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
-  };
-
+  modules.nvidia.enable = true;
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
