@@ -11,6 +11,7 @@
     ../../nixosModules/dev
     ../../nixosModules/settings
     ../../nixosModules/vpn
+    ../../nixosModules/discord
 
     ../../users/juri/juri.nix
   ];
