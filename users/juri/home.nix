@@ -2,7 +2,6 @@
 {
   imports = [
     ./../../homeManagerModules
-    ./../../homeManagerModules/dev/nix
   ];
 
   home.username = "juri";
@@ -14,4 +13,6 @@
 
   home.stateVersion = "24.11";
   programs.home-manager.enable = true;
+
+  homeModules.dev.csharp.enable = true;
 }
