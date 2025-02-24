@@ -15,4 +15,5 @@
   programs.home-manager.enable = true;
 
   homeModules.dev.csharp.enable = true;
+  homeModules.dev.sql.enable = true;
 }
