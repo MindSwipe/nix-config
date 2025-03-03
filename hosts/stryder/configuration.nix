@@ -9,6 +9,10 @@
 
   modules.discord.enable = false;
 
+  nix.extraOptions = ''
+    trusted-users = root juri
+  '';
+
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
