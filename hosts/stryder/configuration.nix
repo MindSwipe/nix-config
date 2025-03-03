@@ -2,12 +2,12 @@
   imports = [
       ./hardware.nix
 
-      ../../nixosModules/dev
-      ../../nixosModules/settings
-      ../../nixosModules/vpn
+      ../../nixosModules
 
       ../../users/juri/juri.nix
   ];
+
+  modules.discord.enable = false;
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
