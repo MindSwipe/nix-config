@@ -8,6 +8,7 @@
   ];
 
   modules.discord.enable = false;
+  modules.bluetooth.enable = true;
 
   nix.extraOptions = ''
     trusted-users = root juri

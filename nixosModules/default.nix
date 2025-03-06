@@ -8,6 +8,7 @@
     ./nvidia
     ./steam
     ./devenv
+    ./bluetooth
   ];
 
   modules = {
@@ -15,5 +16,6 @@
     nvidia.enable = lib.mkDefault false;
     steam.enable = lib.mkDefault false;
     devenv.enable = lib.mkDefault true;
+    bluetooth.enable = lib.mkDefault false;
   };
 }
