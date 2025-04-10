@@ -7,6 +7,7 @@
     ./python
     ./opentofu
     ./java
+    ./js
   ];
 
   homeModules.dev.nix.enable = lib.mkDefault true;
@@ -15,4 +16,8 @@
   homeModules.dev.sql.enable = lib.mkDefault false;
   homeModules.dev.python.enable = lib.mkDefault false;
   homeModules.dev.opentofu.enable = lib.mkDefault false;
+  homeModules.dev.js = {
+    enable = lib.mkDefault false;
+    angular.enable = lib.mkDefault false;
+  };
 }
