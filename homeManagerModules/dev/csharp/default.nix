@@ -15,5 +15,12 @@
     home.packages = with pkgs; [
       jetbrains.rider
     ];
+
+    homeModules.programs.vscode = {
+      additionalExtensions = with pkgs; [
+        vscode-extensions.ms-dotnettools.csdevkit
+        vscode-extensions.ms-dotnettools.csharp
+      ];
+    };
   };
 }
