@@ -24,4 +24,8 @@
     enable = true;
     angular.enable = true;
   };
+  homeModules.dev.rust = {
+    enable = true;
+    tauri.enable = true;
+  };
 }

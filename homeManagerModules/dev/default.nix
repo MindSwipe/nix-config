@@ -8,6 +8,7 @@
     ./opentofu
     ./java
     ./js
+    ./rust
   ];
 
   homeModules.dev.nix.enable = lib.mkDefault true;
@@ -19,5 +20,9 @@
   homeModules.dev.js = {
     enable = lib.mkDefault false;
     angular.enable = lib.mkDefault false;
+  };
+  homeModules.dev.rust = {
+    enable = lib.mkDefault false;
+    tauri.enable = lib.mkDefault false;
   };
 }
