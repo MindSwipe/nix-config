@@ -15,6 +15,7 @@
   config = lib.mkIf config.homeModules.dev.rust.enable {
     homeModules.programs.vscode = {
       additionalExtensions = with pkgs; [
+        rust-analyzer
         vscode-extensions.rust-lang.rust-analyzer
       ];
     };
