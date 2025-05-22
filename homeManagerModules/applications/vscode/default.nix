@@ -32,7 +32,7 @@
   };
 
   config = lib.mkIf config.homeModules.programs.vscode.enable {
-    programs.vscode = {
+    programs.vscode.profiles.default = {
       enable = true;
       enableUpdateCheck = false;
       enableExtensionUpdateCheck = false;
