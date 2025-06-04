@@ -9,6 +9,7 @@
     ./steam
     ./devenv
     ./bluetooth
+    ./fhnw
   ];
 
   modules = {
@@ -17,5 +18,6 @@
     steam.enable = lib.mkDefault false;
     devenv.enable = lib.mkDefault true;
     bluetooth.enable = lib.mkDefault false;
+    fhnw.dnet.enable = lib.mkDefault false;
   };
 }
