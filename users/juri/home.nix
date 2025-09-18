@@ -18,7 +18,7 @@
   homeModules.dev.csharp.enable = true;
   homeModules.dev.sql.enable = true;
   homeModules.dev.python.enable = true;
-  homeModules.dev.opentofu.enable = true;
+  homeModules.dev.opentofu.enable = false;
   homeModules.dev.java.enable = true;
   homeModules.dev.js = {
     enable = true;
@@ -26,7 +26,7 @@
   };
   homeModules.dev.rust = {
     enable = true;
-    tauri.enable = true;
+    tauri.enable = false;
   };
   homeModules.dev.c.enable = true;
 }
