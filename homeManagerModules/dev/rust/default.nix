@@ -16,6 +16,7 @@
     homeModules.programs.vscode = {
       additionalExtensions = with pkgs; [
         vscode-extensions.rust-lang.rust-analyzer
+        vscode-extensions.serayuzgur.crates
       ];
     };
   } // lib.mkIf config.homeModules.dev.rust.tauri.enable {
