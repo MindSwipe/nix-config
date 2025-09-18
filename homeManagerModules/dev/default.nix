@@ -9,6 +9,7 @@
     ./java
     ./js
     ./rust
+    ./c
   ];
 
   homeModules.dev.nix.enable = lib.mkDefault true;
@@ -25,4 +26,5 @@
     enable = lib.mkDefault false;
     tauri.enable = lib.mkDefault false;
   };
+  homeModules.dev.c.enable = lib.mkDefault false;
 }

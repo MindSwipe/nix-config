@@ -28,4 +28,5 @@
     enable = true;
     tauri.enable = true;
   };
+  homeModules.dev.c.enable = true;
 }
