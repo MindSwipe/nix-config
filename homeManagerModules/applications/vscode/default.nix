@@ -32,23 +32,26 @@
   };
 
   config = lib.mkIf config.homeModules.programs.vscode.enable {
-    programs.vscode.profiles.default = {
-      enable = true;
+    programs.vscode = {
       mutableExtensionsDir = false;
-      enableUpdateCheck = false;
-      enableExtensionUpdateCheck = false;
-      extensions = with pkgs;
-        [
-          # Diverse
-          vscode-extensions.tomoki1207.pdf
-          vscode-extensions.ms-azuretools.vscode-docker
-          vscode-extensions.ms-vscode.live-server
-        ]
-        ++ config.homeModules.programs.vscode.additionalExtensions;
       
-      userSettings = {
+      profiles.default = {
+        enable = true;
+        enableUpdateCheck = false;
+        enableExtensionUpdateCheck = false;
+        extensions = with pkgs;
+          [
+            # Diverse
+            vscode-extensions.tomoki1207.pdf
+            vscode-extensions.ms-azuretools.vscode-docker
+            vscode-extensions.ms-vscode.live-server
+          ]
+          ++ config.homeModules.programs.vscode.additionalExtensions;
+        
+        userSettings = {
 
-      } // config.homeModules.programs.vscode.additionalUserSettings;
+        } // config.homeModules.programs.vscode.additionalUserSettings;
+    };
     };
   };
 }
