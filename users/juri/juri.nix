@@ -18,4 +18,5 @@
   };
 
   home-manager.users.juri = import ./home.nix;
+  home-manager.backupFileExtension = "bak";
 }

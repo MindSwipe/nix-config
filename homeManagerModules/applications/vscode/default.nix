@@ -33,10 +33,10 @@
 
   config = lib.mkIf config.homeModules.programs.vscode.enable {
     programs.vscode = {
+      enable = true;
       mutableExtensionsDir = false;
       
       profiles.default = {
-        enable = true;
         enableUpdateCheck = false;
         enableExtensionUpdateCheck = false;
         extensions = with pkgs;
@@ -51,7 +51,7 @@
         userSettings = {
 
         } // config.homeModules.programs.vscode.additionalUserSettings;
-    };
+      };
     };
   };
 }

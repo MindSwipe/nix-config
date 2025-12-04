@@ -10,7 +10,7 @@
     enable = lib.mkEnableOption "Python";
   };
 
-  config = lib.mkIf config.homeModules.dev.nix.enable {
+  config = lib.mkIf config.homeModules.dev.python.enable {
     homeModules.programs.vscode = {
       additionalExtensions = with pkgs; [
         vscode-extensions.ms-python.python
