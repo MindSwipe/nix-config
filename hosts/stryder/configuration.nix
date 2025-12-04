@@ -10,7 +10,7 @@
   modules.discord.enable = false;
   modules.bluetooth.enable = true;
   modules.fhnw = {
-    dnet.enable = true;
+    dnet.enable = false;
   };
   modules.docker.enable = true;
 
