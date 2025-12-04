@@ -12,6 +12,7 @@
   modules.fhnw = {
     dnet.enable = true;
   };
+  modules.docker.enable = true;
 
   nix.extraOptions = ''
     trusted-users = root juri

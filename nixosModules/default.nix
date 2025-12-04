@@ -10,6 +10,7 @@
     ./devenv
     ./bluetooth
     ./fhnw
+    ./docker
   ];
 
   modules = {
@@ -19,5 +20,6 @@
     devenv.enable = lib.mkDefault true;
     bluetooth.enable = lib.mkDefault false;
     fhnw.dnet.enable = lib.mkDefault false;
+    docker.enable = lib.mkDefault false;
   };
 }
