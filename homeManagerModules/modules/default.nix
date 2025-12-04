@@ -1,6 +1,6 @@
 { ... }:
 {
   imports = [
-    ./dnet
+    ./treefmt
   ];
 }

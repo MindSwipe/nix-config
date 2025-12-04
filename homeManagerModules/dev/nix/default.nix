@@ -11,8 +11,7 @@
 
   config = lib.mkIf config.homeModules.dev.nix.enable {
     home.packages = with pkgs; [
-      nixfmt-rfc-style
-      nil
+      nixd
       deadnix
     ];
 
@@ -20,8 +19,28 @@
       additionalExtensions = with pkgs; [ vscode-extensions.jnoortheen.nix-ide ];
       additionalUserSettings = {
         nix.enableLanguageServer = true;
-        nix.serverPath = "nil";
+        nix.serverPath = "nixd";
+        nix.serverSettings = {
+          nixd = {
+            formatting = {
+              command = [ "nixfmt" ];
+            };
+          };
+        };
+
+        "[nix]" = {
+          editor.formatOnSave = true;
+        };
       };
     };
+
+    homeModules.treefmt.additionalFormatters = [
+      {
+        package = pkgs.nixfmt-rfc-style;
+        name = "nixfmt-rfc-style";
+        command = "nixfmt";
+        includes = [ "*.nix" ];
+      }
+    ];
   };
 }

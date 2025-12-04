@@ -35,11 +35,12 @@
     programs.vscode = {
       enable = true;
       mutableExtensionsDir = false;
-      
+
       profiles.default = {
         enableUpdateCheck = false;
         enableExtensionUpdateCheck = false;
-        extensions = with pkgs;
+        extensions =
+          with pkgs;
           [
             # Diverse
             vscode-extensions.tomoki1207.pdf
@@ -47,10 +48,11 @@
             vscode-extensions.ms-vscode.live-server
           ]
           ++ config.homeModules.programs.vscode.additionalExtensions;
-        
+
         userSettings = {
 
-        } // config.homeModules.programs.vscode.additionalUserSettings;
+        }
+        // config.homeModules.programs.vscode.additionalUserSettings;
       };
     };
   };

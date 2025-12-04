@@ -1,4 +1,9 @@
-{ lib, config, pkgs, ...}:
+{
+  lib,
+  config,
+  pkgs,
+  ...
+}:
 {
   options = {
     modules.discord.enable = lib.mkEnableOption "Discord";

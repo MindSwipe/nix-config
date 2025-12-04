@@ -1,4 +1,4 @@
 { lib, ... }:
 {
-    nixpkgs.config.allowUnfree = lib.mkDefault true;
+  nixpkgs.config.allowUnfree = lib.mkDefault true;
 }

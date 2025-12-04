@@ -29,4 +29,8 @@
     tauri.enable = false;
   };
   homeModules.dev.c.enable = false;
+
+  homeModules.treefmt = {
+    enable = true;
+  };
 }

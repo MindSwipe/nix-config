@@ -3,5 +3,6 @@
   imports = [
     ./applications
     ./dev
+    ./modules
   ];
 }

@@ -12,18 +12,20 @@
     };
   };
 
-  config = lib.mkIf config.homeModules.dev.rust.enable {
-    homeModules.programs.vscode = {
-      additionalExtensions = with pkgs; [
-        vscode-extensions.rust-lang.rust-analyzer
-        vscode-extensions.serayuzgur.crates
-      ];
+  config =
+    lib.mkIf config.homeModules.dev.rust.enable {
+      homeModules.programs.vscode = {
+        additionalExtensions = with pkgs; [
+          vscode-extensions.rust-lang.rust-analyzer
+          vscode-extensions.serayuzgur.crates
+        ];
+      };
+    }
+    // lib.mkIf config.homeModules.dev.rust.tauri.enable {
+      homeModules.programs.vscode = {
+        additionalExtensions = with pkgs; [
+          vscode-extensions.tauri-apps.tauri-vscode
+        ];
+      };
     };
-  } // lib.mkIf config.homeModules.dev.rust.tauri.enable {
-    homeModules.programs.vscode = {
-      additionalExtensions = with pkgs; [
-        vscode-extensions.tauri-apps.tauri-vscode
-      ];
-    };
-  };
 }
