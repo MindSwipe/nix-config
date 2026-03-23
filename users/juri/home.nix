@@ -15,7 +15,7 @@
   programs.home-manager.enable = true;
 
   homeModules.dev.nix.enable = true;
-  homeModules.dev.csharp.enable = false;
+  homeModules.dev.csharp.enable = true;
   homeModules.dev.sql.enable = false;
   homeModules.dev.python.enable = false;
   homeModules.dev.opentofu.enable = false;
