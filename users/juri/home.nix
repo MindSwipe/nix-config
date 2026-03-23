@@ -29,6 +29,10 @@
     tauri.enable = false;
   };
   homeModules.dev.c.enable = false;
+  homeModules.dev.vue = {
+    enable = true;
+    nuxt.enable = true;
+  };
 
   homeModules.treefmt = {
     enable = true;

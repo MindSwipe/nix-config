@@ -10,6 +10,7 @@
     ./js
     ./rust
     ./c
+    ./vue
   ];
 
   homeModules.dev.nix.enable = lib.mkDefault true;
@@ -27,4 +28,8 @@
     tauri.enable = lib.mkDefault false;
   };
   homeModules.dev.c.enable = lib.mkDefault false;
+  homeModules.dev.vue = {
+    enable = lib.mkDefault false;
+    nuxt.enable = lib.mkDefault false;
+  };
 }
