@@ -23,10 +23,10 @@
     in
     {
       nixosConfigurations = {
-        "nixos" = lib.nixosSystem {
+        "stryder" = lib.nixosSystem {
           system = "${system}";
           modules = [
-            ./hosts/virtual/configuration.nix
+            ./hosts/stryder/configuration.nix
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
@@ -35,10 +35,10 @@
           ];
         };
 
-        "stryder" = lib.nixosSystem {
+        "ronin" = lib.nixosSystem {
           system = "${system}";
           modules = [
-            ./hosts/stryder/configuration.nix
+            ./hosts/ronin/configuration.nix
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
@@ -61,11 +61,6 @@
       };
 
       homeConfigurations = {
-        "virtual" = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-          modules = [ ./users/juri/home.nix ];
-        };
-
         "juri" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           modules = [ ./users/juri/home.nix ];
