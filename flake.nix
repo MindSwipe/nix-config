@@ -8,12 +8,17 @@
       # the current flake. It works like inheritance in OOP
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nixos-hardware = {
+      url = "github:NixOS/nixos-hardware/master";
+    };
   };
 
   outputs =
     {
       nixpkgs,
       home-manager,
+      nixos-hardware,
       ...
     }:
     let
@@ -38,6 +43,8 @@
         "ronin" = lib.nixosSystem {
           system = "${system}";
           modules = [
+            nixos-hardware.nixosModules.framework-amd-ai-300-series
+
             ./hosts/ronin/configuration.nix
             home-manager.nixosModules.home-manager
             {
