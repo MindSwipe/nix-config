@@ -19,6 +19,11 @@
     trusted-users = root juri
   '';
 
+  powerManagement = {
+    enable = true;
+    powertop.enable = true;
+  };
+
   # Bootloader.
   boot = {
     loader = {
