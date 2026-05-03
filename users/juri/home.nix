@@ -33,6 +33,7 @@
     enable = true;
     nuxt.enable = true;
   };
+  homeModules.dev.typst.enable = true;
 
   homeModules.treefmt = {
     enable = true;

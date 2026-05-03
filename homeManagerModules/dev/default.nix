@@ -11,6 +11,7 @@
     ./rust
     ./c
     ./vue
+    ./typst
   ];
 
   homeModules.dev.nix.enable = lib.mkDefault true;
@@ -32,4 +33,5 @@
     enable = lib.mkDefault false;
     nuxt.enable = lib.mkDefault false;
   };
+  homeModules.dev.typst.enable = lib.mkDefault false;
 }
