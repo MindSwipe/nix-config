@@ -18,7 +18,7 @@
   homeModules.dev.csharp.enable = true;
   homeModules.dev.sql.enable = false;
   homeModules.dev.python.enable = false;
-  homeModules.dev.opentofu.enable = false;
+  homeModules.dev.opentofu.enable = true;
   homeModules.dev.java.enable = false;
   homeModules.dev.js = {
     enable = false;
