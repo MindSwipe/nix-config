@@ -12,6 +12,8 @@
     nixos-hardware = {
       url = "github:NixOS/nixos-hardware/master";
     };
+
+    nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
   };
 
   outputs =
@@ -19,12 +21,23 @@
       nixpkgs,
       home-manager,
       nixos-hardware,
+      nix-vscode-extensions,
       ...
     }:
     let
       system = "x86_64-linux";
       lib = nixpkgs.lib;
-      pkgs = nixpkgs.legacyPackages.${system};
+      pkgs = import nixpkgs {
+        inherit system;
+
+        overlays = [
+          nix-vscode-extensions.overlays.default
+        ];
+      };
+
+      vscodeOverlayModule = {
+        nixpkgs.overlays = [ nix-vscode-extensions.overlays.default ];
+      };
     in
     {
       nixosConfigurations = {
@@ -44,6 +57,7 @@
           system = "${system}";
           modules = [
             nixos-hardware.nixosModules.framework-amd-ai-300-series
+            vscodeOverlayModule
 
             ./hosts/ronin/configuration.nix
             home-manager.nixosModules.home-manager

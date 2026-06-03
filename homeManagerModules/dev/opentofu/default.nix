@@ -11,10 +11,14 @@
   };
 
   config = lib.mkIf config.homeModules.dev.opentofu.enable {
+    home.packages = with pkgs; [
+      opentofu
+      tofu-ls
+    ];
+
     homeModules.programs.vscode = {
       additionalExtensions = with pkgs; [
-        vscode-extensions.hashicorp.terraform
-        vscode-extensions.hashicorp.hcl
+        vscode-marketplace.opentofu.vscode-opentofu
       ];
     };
   };
