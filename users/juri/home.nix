@@ -34,6 +34,7 @@
     nuxt.enable = true;
   };
   homeModules.dev.typst.enable = true;
+  homeModules.dev.k8s.enable = true;
 
   homeModules.treefmt = {
     enable = true;

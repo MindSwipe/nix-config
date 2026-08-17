@@ -12,6 +12,7 @@
     ./c
     ./vue
     ./typst
+    ./k8s
   ];
 
   homeModules.dev.nix.enable = lib.mkDefault true;
@@ -34,4 +35,5 @@
     nuxt.enable = lib.mkDefault false;
   };
   homeModules.dev.typst.enable = lib.mkDefault false;
+  homeModules.dev.k8s.enable = lib.mkDefault false;
 }
