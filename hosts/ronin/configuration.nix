@@ -14,6 +14,7 @@
     dnet.enable = false;
   };
   modules.docker.enable = true;
+  modules.tailscale.enable = true;
 
   nix.extraOptions = ''
     trusted-users = root juri
