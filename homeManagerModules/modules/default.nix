@@ -2,5 +2,6 @@
 {
   imports = [
     ./treefmt
+    ./niri-dms
   ];
 }

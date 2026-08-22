@@ -15,6 +15,7 @@
   };
   modules.docker.enable = true;
   modules.tailscale.enable = true;
+  modules.niri.enable = true;
 
   nix.extraOptions = ''
     trusted-users = root juri
@@ -96,6 +97,10 @@
 
   # Enable firmware updates
   services.fwupd.enable = true;
+
+  nixpkgs.config.permittedInsecurePackages = [
+    "docker-28.5.2"
+  ];
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

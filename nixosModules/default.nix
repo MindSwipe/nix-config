@@ -11,6 +11,7 @@
     ./bluetooth
     ./fhnw
     ./docker
+    ./niri
   ];
 
   modules = {
@@ -21,5 +22,6 @@
     bluetooth.enable = lib.mkDefault false;
     fhnw.dnet.enable = lib.mkDefault false;
     docker.enable = lib.mkDefault false;
+    niri.enable = lib.mkDefault false;
   };
 }
