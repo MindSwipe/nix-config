@@ -12,6 +12,7 @@
     ./fhnw
     ./docker
     ./niri
+    ./plymouth
   ];
 
   modules = {
@@ -23,5 +24,6 @@
     fhnw.dnet.enable = lib.mkDefault false;
     docker.enable = lib.mkDefault false;
     niri.enable = lib.mkDefault false;
+    plymouth.enable = lib.mkDefault false;
   };
 }

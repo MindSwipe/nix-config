@@ -16,6 +16,7 @@
   modules.docker.enable = true;
   modules.tailscale.enable = true;
   modules.niri.enable = true;
+  modules.plymouth.enable = true;
 
   nix.extraOptions = ''
     trusted-users = root juri
