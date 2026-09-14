@@ -1,7 +1,0 @@
-{ ... }:
-{
-  imports = [
-    ./treefmt
-    ./niri-dms
-  ];
-}
