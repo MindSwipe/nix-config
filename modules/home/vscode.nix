@@ -1,5 +1,5 @@
 { ... }: {
-  flake.homeManagerModules.vscode =
+  flake.homeModules.vscode =
     {
       config,
       lib,
@@ -7,7 +7,7 @@
       ...
     }:
     {
-      options.homeManagerModules.vscode = {
+      options.homeModules.vscode = {
         enable = lib.mkEnableOption "Visual Studio Code configuration";
         telemetry = lib.mkOption {
           default = "off";
@@ -35,7 +35,7 @@
 
       config =
         let
-          cfg = config.homeManagerModules.vscode;
+          cfg = config.homeModules.vscode;
         in
         lib.mkIf cfg.enable {
           programs.vscode = {

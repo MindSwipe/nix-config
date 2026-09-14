@@ -4,7 +4,7 @@
 # { config, lib, pkgs, modulesPath, ... }:
 { ... }:
 {
-  flake.nixosConfigurations.roninHardware =
+  flake.nixosModules.roninHardware =
     {
       config,
       lib,

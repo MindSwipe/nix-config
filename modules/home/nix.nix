@@ -1,5 +1,5 @@
 { ... }: {
-  flake.homeManagerModules.nix =
+  flake.homeModules.nix =
     {
       lib,
       config,
@@ -9,7 +9,7 @@
     {
       enable = lib.mkEnableOption "Nix";
 
-      config = lib.mkIf config.homeManagerModules.nix.enable {
+      config = lib.mkIf config.homeModules.nix.enable {
         home.packages = with pkgs; [
           nixd
           deadnix

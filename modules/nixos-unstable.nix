@@ -1,7 +1,7 @@
 { inputs, ... }:
 {
   perSystem = { system, ... }: {
-    _module.args.pkgsUnstable = import inputs.unstable-nixpkgs {
+    _module.args.unstable-nixpkgs = import inputs.unstable-nixpkgs {
       inherit system;
       config.allowUnfree = true;
     };
