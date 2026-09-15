@@ -16,12 +16,18 @@
       nix
       treefmt
       git
+      fish
+      tmux
+      alacritty
     ];
 
     homeModules = {
       vscode.enable = true;
       nix.enable = true;
       treefmt.enable = true;
+      fish.enable = true;
+      tmux.enable = true;
+      alacritty.enable = true;
 
       git = {
         enable = true;
@@ -41,6 +47,7 @@
     home.username = "juri";
     home.homeDirectory = "/home/juri";
 
+    # DO NOT MODIFY THIS UNLESS YOU KNOW WHAT YOU ARE DOING
     home.stateVersion = "25.05";
     programs.home-manager.enable = true;
   };
