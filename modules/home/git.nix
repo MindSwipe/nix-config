@@ -76,9 +76,18 @@
           };
         };
 
-        programs.ssh = lib.mkIf cfg.signing.enable {
-          enable = true;
-          addKeysToAgent = "yes";
+        # TODO: Move this out to its own home manager module, eventually...
+        programs.ssh.settings."*" = lib.mkIf cfg.signing.enable {
+          ForwardAgent = false;
+          AddKeysToAgent = "no";
+          Compression = false;
+          ServerAliveInterval = 0;
+          ServerAliveCountMax = 3;
+          HashKnownHosts = false;
+          UserKnownHostsFile = "~/.ssh/known_hosts";
+          ControlMaster = "no";
+          ControlPath = "~/.ssh/master-%r@%n:%p";
+          ControlPersist = "no";
         };
       };
     };
