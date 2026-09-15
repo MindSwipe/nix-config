@@ -1,4 +1,9 @@
-{ self, inputs, ... }: {
+{
+  self,
+  inputs,
+  ...
+}:
+{
   flake.nixosConfigurations.ronin = inputs.nixpkgs.lib.nixosSystem {
     modules = [
       self.nixosModules.roninConfiguration

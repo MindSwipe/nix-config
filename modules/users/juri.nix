@@ -19,6 +19,8 @@
       fish
       tmux
       alacritty
+
+      self.unfree
     ];
 
     homeModules = {

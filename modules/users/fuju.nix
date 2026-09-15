@@ -5,6 +5,8 @@
       nix
       treefmt
       git
+
+      self.unfree
     ];
 
     home.username = "fuju";

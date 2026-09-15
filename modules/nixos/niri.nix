@@ -31,7 +31,7 @@
 
         settings = {
           spawn-at-startup = [
-            (lib.getExe self'.packages.myNoctalia)
+            (lib.getExe pkgs.noctalia)
           ];
 
           xwayland-satellite.path = lib.getExe pkgs.xwayland-satellite;
@@ -67,11 +67,11 @@
           binds = {
             "Mod+T".spawn = lib.getExe pkgs.alacritty;
             "Mod+Q".close-window = _: { };
-            "Mod+S".spawn-sh = "${lib.getExe self'.packages.myNoctalia} ipc call launcher toggle";
-            "Mod+Space".spawn-sh = "${lib.getExe self'.packages.myNoctalia} ipc call launcher toggle";
+            "Mod+S".spawn-sh = "${lib.getExe pkgs.noctalia} msg panel-toggle launcher";
+            "Mod+Space".spawn-sh = "${lib.getExe pkgs.noctalia} msg panel-toggle launcher";
 
             # Lock
-            "Super+Alt+L".spawn-sh = "${lib.getExe self'.packages.myNoctalia} ipc call sessionMenu lock";
+            "Super+Alt+L".spawn-sh = "${lib.getExe pkgs.noctalia} msg session lock";
 
             # Window resize
             "Mod+Left".focus-column-left = _: { };
