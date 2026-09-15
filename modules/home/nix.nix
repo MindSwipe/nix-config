@@ -39,15 +39,14 @@
           };
         };
 
-        # Treefmt hasn't migrated yet
-        # homeModules.treefmt.additionalFormatters = [
-        #   {
-        #     package = pkgs.nixfmt-rfc-style;
-        #     name = "nixfmt-rfc-style";
-        #     command = "nixfmt";
-        #     includes = [ "*.nix" ];
-        #   }
-        # ];
+        homeModules.treefmt.additionalFormatters = [
+          {
+            package = pkgs.nixfmt;
+            name = "nixfmt";
+            command = "nixfmt";
+            includes = [ "*.nix" ];
+          }
+        ];
       };
     };
 }

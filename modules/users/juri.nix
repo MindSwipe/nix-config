@@ -14,14 +14,13 @@
     imports = with self.homeModules; [
       vscode
       nix
+      treefmt
     ];
 
-    homeModules.vscode = {
-      enable = true;
-    };
-
-    homeModules.nix = {
-      enable = true;
+    homeModules = {
+      vscode.enable = true;
+      nix.enable = true;
+      treefmt.enable = true;
     };
 
     home.username = "juri";
