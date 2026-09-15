@@ -15,12 +15,27 @@
       vscode
       nix
       treefmt
+      git
     ];
 
     homeModules = {
       vscode.enable = true;
       nix.enable = true;
       treefmt.enable = true;
+
+      git = {
+        enable = true;
+
+        user = {
+          name = "Juri Furer";
+          email = "juri.furer@pm.me";
+        };
+
+        signing = {
+          enable = true;
+          publichSshKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICvzuc7DTJjkOKdXUZzUJYN7d0M8FZklPQrtyZb8TEXM juri@ronin";
+        };
+      };
     };
 
     home.username = "juri";
