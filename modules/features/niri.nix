@@ -48,6 +48,22 @@
             };
           };
 
+          prefer-no-csd = _: { };
+
+          window-rule = {
+            tiled-state = true;
+          };
+
+          layout = {
+            gaps = 8;
+
+            focus-ring = {
+              width = 2;
+              active-color = "#B8BB26";
+              inactive-color = "#756034";
+            };
+          };
+
           binds = {
             "Mod+T".spawn = lib.getExe pkgs.alacritty;
             "Mod+Q".close-window = _: { };
@@ -73,6 +89,7 @@
             "Mod+Plus".set-column-width = "+10%";
             "Mod+Shift+Minus".set-column-width = "-5%";
             "Mod+Shift+Plus".set-column-width = "+5%";
+            "Mod+Shift+1".set-column-width = "+5%";
 
             # Workspace movement
             "Mod+Ctrl+Page_Down".move-column-to-workspace-down = _: { };
