@@ -18,7 +18,6 @@
 
     homeModules.vscode = {
       enable = true;
-      additionalUserSettings.workbench.secondarySideBar.defaultVisibility = "hidden";
     };
 
     homeModules.nix = {
@@ -30,8 +29,5 @@
 
     home.stateVersion = "25.05";
     programs.home-manager.enable = true;
-
-    # self.homeModules.vscode.enable = true;
-    # self.homeModules.nix.enable = true;
   };
 }

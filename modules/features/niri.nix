@@ -24,9 +24,16 @@
 
           xwayland-satellite.path = lib.getExe pkgs.xwayland-satellite;
 
-          input.keyboard.xkb = {
-            layout = "ch";
-            variant = "de_nodeadkeys";
+          input = {
+            keyboard.xkb = {
+              layout = "ch";
+              variant = "de_nodeadkeys";
+            };
+
+            touchpad = {
+              tap = _: { };
+              natural-scroll = _: { };
+            };
           };
 
           binds = {

@@ -55,7 +55,12 @@
               ++ cfg.additionalExtensions;
 
             userSettings = {
+              editor.minimap.enabled = false;
 
+              workbench = {
+                editor.wrapTabs = true;
+                secondarySideBar.defaultVisibility = "hidden";
+              };
             }
             // cfg.additionalUserSettings;
           };

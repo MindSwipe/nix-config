@@ -7,6 +7,8 @@
       inputs.nixos-hardware.nixosModules.framework-amd-ai-300-series
     ];
 
+    nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
     # Bootloader.
     boot.loader.systemd-boot.enable = true;
     boot.loader.efi.canTouchEfiVariables = true;
