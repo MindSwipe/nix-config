@@ -6,16 +6,21 @@
       pkgs,
       ...
     }:
+    let
+      cfg = config.homeModules.nix;
+    in
     {
-      enable = lib.mkEnableOption "Nix";
+      options.homeModules.nix = {
+        enable = lib.mkEnableOption "Nix";
+      };
 
-      config = lib.mkIf config.homeModules.nix.enable {
+      config = lib.mkIf cfg.enable {
         home.packages = with pkgs; [
           nixd
           deadnix
         ];
 
-        homeModules.programs.vscode = {
+        homeModules.vscode = {
           additionalExtensions = with pkgs; [ vscode-extensions.jnoortheen.nix-ide ];
           additionalUserSettings = {
             nix.enableLanguageServer = true;

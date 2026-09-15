@@ -11,7 +11,7 @@
     boot.loader.systemd-boot.enable = true;
     boot.loader.efi.canTouchEfiVariables = true;
 
-    networking.hostName = "nixos"; # Define your hostname.
+    networking.hostName = "ronin"; # Define your hostname.
     # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
     # Configure network proxy if necessary
@@ -79,18 +79,18 @@
     # services.xserver.libinput.enable = true;
 
     # Define a user account. Don't forget to set a password with ‘passwd’.
-    users.users.juri = {
-      isNormalUser = true;
-      description = "Juri Furer";
-      extraGroups = [
-        "networkmanager"
-        "wheel"
-      ];
-      packages = with pkgs; [
-        kdePackages.kate
-        #  thunderbird
-      ];
-    };
+    # users.users.juri = {
+    #   isNormalUser = true;
+    #   description = "Juri Furer";
+    #   extraGroups = [
+    #     "networkmanager"
+    #     "wheel"
+    #   ];
+    #   packages = with pkgs; [
+    #     kdePackages.kate
+    #     #  thunderbird
+    #   ];
+    # };
 
     # Install firefox.
     programs.firefox.enable = true;

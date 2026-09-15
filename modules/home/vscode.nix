@@ -6,6 +6,9 @@
       pkgs,
       ...
     }:
+    let
+      cfg = config.homeModules.vscode;
+    in
     {
       options.homeModules.vscode = {
         enable = lib.mkEnableOption "Visual Studio Code configuration";
@@ -33,34 +36,30 @@
         };
       };
 
-      config =
-        let
-          cfg = config.homeModules.vscode;
-        in
-        lib.mkIf cfg.enable {
-          programs.vscode = {
-            enable = true;
-            mutableExtensionsDir = true;
+      config = lib.mkIf cfg.enable {
+        programs.vscode = {
+          enable = true;
+          mutableExtensionsDir = true;
 
-            profiles.default = {
-              enableUpdateCheck = false;
-              enableExtensionUpdateCheck = false;
-              extensions =
-                with pkgs;
-                [
-                  # Diverse
-                  vscode-extensions.tomoki1207.pdf
-                  vscode-extensions.ms-azuretools.vscode-docker
-                  vscode-extensions.ms-vscode.live-server
-                ]
-                ++ config.homeModules.programs.vscode.additionalExtensions;
+          profiles.default = {
+            enableUpdateCheck = false;
+            enableExtensionUpdateCheck = false;
+            extensions =
+              with pkgs;
+              [
+                # Diverse
+                vscode-extensions.tomoki1207.pdf
+                vscode-extensions.ms-azuretools.vscode-docker
+                vscode-extensions.ms-vscode.live-server
+              ]
+              ++ cfg.additionalExtensions;
 
-              userSettings = {
+            userSettings = {
 
-              }
-              // config.homeModules.programs.vscode.additionalUserSettings;
-            };
+            }
+            // cfg.additionalUserSettings;
           };
         };
+      };
     };
 }
