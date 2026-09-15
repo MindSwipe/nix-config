@@ -19,6 +19,7 @@
       fish
       tmux
       alacritty
+      c
 
       self.unfree
     ];
@@ -30,6 +31,7 @@
       fish.enable = true;
       tmux.enable = true;
       alacritty.enable = true;
+      c.enable = true;
 
       git = {
         enable = true;
