@@ -15,5 +15,15 @@
     };
   };
 
+  nixConfig = {
+    extra-substituters = [
+      "https://cache.saumon.network/proxmox-nixos"
+    ];
+
+    extra-trusted-public-keys = [
+      "proxmox-nixos:D9RYSWpQQC/msZUWphOY2I5RLH5Dd6yQcaHIuug7dWM="
+    ];
+  };
+
   outputs = inputs: inputs.flake-parts.lib.mkFlake { inherit inputs; } (inputs.import-tree ./modules);
 }
