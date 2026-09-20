@@ -9,6 +9,7 @@
       self.nixosModules.roninConfiguration
       self.nixosModules.niri
       self.nixosModules.juri
+      self.nixosModules.proxmox
 
       inputs.home-manager.nixosModules.home-manager
       {
