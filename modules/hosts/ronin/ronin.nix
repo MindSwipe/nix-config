@@ -10,6 +10,7 @@
       self.nixosModules.niri
       self.nixosModules.juri
       self.nixosModules.proxmox
+      self.nixosModules.bluetooth
 
       inputs.home-manager.nixosModules.home-manager
       {
