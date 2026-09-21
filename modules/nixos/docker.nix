@@ -1,6 +1,6 @@
-{ self, ... }: {
+{ ... }: {
+  # This modules requires the host to import the customGroups module
   flake.nixosModules.docker = { ... }: {
-    imports = [ self.nixosModules.customGroups ];
     virtualisation.docker.enable = true;
 
     customGroups.extraGroups = [ "docker" ];
