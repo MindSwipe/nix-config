@@ -1,12 +1,15 @@
 { self, ... }: {
-  flake.nixosModules.juri = { ... }: {
+  flake.nixosModules.juri = { config, ... }: {
+    imports = [ self.nixosModules.customGroups ];
+
     users.users.juri = {
       isNormalUser = true;
       description = "Juri Furer";
       extraGroups = [
         "networkmanager"
         "wheel"
-      ];
+      ]
+      ++ config.customGroups.extraGroups;
     };
   };
 

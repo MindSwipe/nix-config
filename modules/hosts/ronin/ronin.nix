@@ -11,6 +11,7 @@
       self.nixosModules.juri
       self.nixosModules.proxmox
       self.nixosModules.bluetooth
+      self.nixosModules.docker
 
       inputs.home-manager.nixosModules.home-manager
       {
