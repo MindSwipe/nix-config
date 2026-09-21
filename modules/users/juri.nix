@@ -23,6 +23,7 @@
       tmux
       alacritty
       c
+      k8s
 
       self.unfree
     ];
@@ -35,6 +36,7 @@
       tmux.enable = true;
       alacritty.enable = true;
       c.enable = true;
+      k8s.enable = true;
 
       git = {
         enable = true;

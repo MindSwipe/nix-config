@@ -1,5 +1,5 @@
 { ... }: {
-  flake.nixosModules.extraGroups = { lib, ... }: {
+  flake.nixosModules.customGroups = { lib, ... }: {
     options.customGroups.extraGroups = lib.mkOption {
       type = lib.types.listOf lib.types.str;
       default = [ ];
