@@ -9,7 +9,6 @@
       self.nixosModules.roninConfiguration
       self.nixosModules.niri
       self.nixosModules.juri
-      self.nixosModules.proxmox
       self.nixosModules.bluetooth
       self.nixosModules.docker
 
