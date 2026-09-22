@@ -11,6 +11,7 @@
       self.nixosModules.juri
       self.nixosModules.bluetooth
       self.nixosModules.docker
+      self.nixosModules.virtualisation
 
       inputs.home-manager.nixosModules.home-manager
       {
