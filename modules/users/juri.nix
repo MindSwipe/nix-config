@@ -24,6 +24,7 @@
       alacritty
       c
       k8s
+      csharp
 
       self.unfree
     ];
@@ -37,6 +38,7 @@
       alacritty.enable = true;
       c.enable = true;
       k8s.enable = true;
+      csharp.enable = true;
 
       git = {
         enable = true;
