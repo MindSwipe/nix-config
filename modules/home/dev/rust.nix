@@ -17,6 +17,7 @@
         homeModules.vscode = {
           additionalExtensions = with pkgs; [
             vscode-extensions.rust-lang.rust-analyzer
+            vscode-extensions.tamasfe.even-better-toml
           ];
         };
       };
