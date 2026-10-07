@@ -26,6 +26,7 @@
       k8s
       csharp
       rust
+      just
 
       self.unfree
     ];
