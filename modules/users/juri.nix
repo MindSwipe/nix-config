@@ -27,6 +27,7 @@
       csharp
       rust
       just
+      vue
 
       self.unfree
     ];
