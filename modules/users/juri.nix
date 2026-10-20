@@ -29,6 +29,7 @@
       just
       js
       vue
+      java
 
       self.unfree
     ];
