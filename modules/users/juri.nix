@@ -30,6 +30,7 @@
       js
       vue
       java
+      obsidian
 
       self.unfree
     ];
