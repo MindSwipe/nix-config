@@ -25,6 +25,7 @@
               args = [
                 "new-session"
                 "-t"
+                "main"
               ];
             };
 
