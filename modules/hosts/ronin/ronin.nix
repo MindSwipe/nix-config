@@ -13,6 +13,7 @@
       self.nixosModules.docker
       self.nixosModules.virtualisation
       self.nixosModules.nix-ld
+      self.nixosModules.tailscale
 
       inputs.home-manager.nixosModules.home-manager
       {
