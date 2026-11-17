@@ -14,6 +14,7 @@
       self.nixosModules.virtualisation
       self.nixosModules.nix-ld
       self.nixosModules.tailscale
+      self.nixosModules.laptopSuspend
 
       inputs.home-manager.nixosModules.home-manager
       {
