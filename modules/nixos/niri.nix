@@ -10,7 +10,7 @@
     {
       pkgs,
       lib,
-      self',
+      config,
       ...
     }:
     let
@@ -26,9 +26,24 @@
         );
 
       noctaliaPkg = inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default;
+      cfg = config.niri;
     in
     {
-      packages.myNiri = inputs.wrapper-modules.wrappers.niri.wrap {
+      options.niri = {
+        additionalBinds = lib.mkOption {
+          type = lib.types.lazyAttrsOf lib.types.raw;
+          default = { };
+          example = lib.literalExpression ''
+            {
+              "Mod+B".spawn = lib.getExe pkgs.firefox;
+              "Mod+W".close-window = _: { };
+            }
+          '';
+          description = "Extra Niri keybinds, merged into `settings.binds`.";
+        };
+      };
+
+      config.packages.myNiri = inputs.wrapper-modules.wrappers.niri.wrap {
         inherit pkgs;
 
         settings = {
@@ -102,7 +117,8 @@
             "Mod+Shift+Page_Up".move-workspace-up = _: { };
           }
           // generateAllNumbers "Mod" "focus-workspace"
-          // generateAllNumbers "Mod+Ctrl" "move-column-to-workspace";
+          // generateAllNumbers "Mod+Ctrl" "move-column-to-workspace"
+          // cfg.additionalBinds;
         };
       };
     };

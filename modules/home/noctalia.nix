@@ -9,6 +9,7 @@
     let
       noctalia = inputs.noctalia;
       cfg = config.homeModules.noctalia;
+      noctaliaPkg = inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default;
     in
     {
       imports = [
@@ -17,8 +18,8 @@
 
       options.homeModules.noctalia = {
         package = lib.mkOption {
-          default = pkgs.noctalia;
-          example = pkgs.noctalia;
+          default = noctaliaPkg;
+          example = noctaliaPkg;
           type = lib.types.package;
           description = "The Noctalia package to use";
         };
@@ -89,6 +90,26 @@
           }
           // cfg.additionalSettings;
         };
+      };
+    };
+
+  perSystem =
+    { lib, pkgs, ... }:
+    let
+      noctaliaPkg = inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default;
+      msg = args: [ (lib.getExe noctaliaPkg) ] ++ args;
+    in
+    {
+      niri.additionalBinds = {
+        "Mod+Shift+S".spawn = msg [ "screenshot-region" ];
+
+        "Mod+V".spawn = msg [
+          "panel-toggle"
+          "clipboard"
+        ];
+
+        "XF86MonBrightnessUp".spawn = msg [ "brightness-up" ];
+        "XF86MonBrightnessDown".spawn = msg [ "brightness-down" ];
       };
     };
 }
