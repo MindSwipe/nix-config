@@ -13,8 +13,16 @@
     ];
 
     # Bootloader.
-    boot.loader.systemd-boot.enable = true;
-    boot.loader.efi.canTouchEfiVariables = true;
+    boot = {
+      loader = {
+        systemd-boot.enable = true;
+        efi.canTouchEfiVariables = true;
+      };
+
+      resumeDevice = "/dev/disk/by-uuid/1dbe67fc-1f0f-43ca-a00f-b75e63cb495d";
+
+      systemd.sleep.settings.Sleep.HibernateMode = "shutdown";
+    };
 
     networking.hostName = "ronin"; # Define your hostname.
     # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
