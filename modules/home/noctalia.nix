@@ -35,20 +35,24 @@
           package = cfg.package;
 
           settings = {
-            idle.behavior = {
-              lock = {
-                # Lock after 5 minutes of idle
-                timeout = 300;
-                action = "lock";
-              };
-              suspend = {
-                # Suspend after 15 minutes of idle if not locked
-                timeout = 900;
+            idle = {
+              pre_action_fade_seconds = 3.0;
 
-                # Suspend after 2 minutes of idle locked
-                locked_timeout = 120;
-                action = "suspend";
-                lock_before_suspend = true;
+              behavior = {
+                lock = {
+                  # Lock after 5 minutes of idle
+                  timeout = 300;
+                  action = "lock";
+                };
+                suspend = {
+                  # Suspend after 15 minutes of idle if not locked
+                  timeout = 900;
+
+                  # Suspend after 2 minutes of idle locked
+                  locked_timeout = 120;
+                  action = "suspend";
+                  lock_before_suspend = true;
+                };
               };
             };
 

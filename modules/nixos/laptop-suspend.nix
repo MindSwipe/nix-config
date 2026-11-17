@@ -1,6 +1,6 @@
 { ... }: {
   flake.nixosModules.laptopSuspend = { ... }: {
-    # Hibernate after suspent for 30 minutes
+    # Hibernate after suspended for 30 minutes
     systemd.sleep.settings.Sleep.HibernateDelaySec = "30min";
 
     services.logind.settings.Login = {
