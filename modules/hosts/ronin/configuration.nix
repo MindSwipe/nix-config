@@ -20,9 +20,17 @@
       };
 
       resumeDevice = "/dev/disk/by-uuid/1dbe67fc-1f0f-43ca-a00f-b75e63cb495d";
-
-      systemd.sleep.settings.Sleep.HibernateMode = "shutdown";
     };
+
+    systemd.sleep.settings.Sleep.HibernateMode = "shutdown";
+
+    services.udev.extraRules = ''
+      # PS/2 keyboard (i8042 via the EC)
+      ACTION=="add|change", SUBSYSTEM=="serio", DRIVER=="atkbd", ATTR{power/wakeup}="disabled"
+
+      # I2C touchpad
+      ACTION=="add|change", SUBSYSTEM=="i2c", KERNEL=="i2c-PIXA3854:00", ATTR{power/wakeup}="disabled"
+    '';
 
     networking.hostName = "ronin"; # Define your hostname.
     # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
