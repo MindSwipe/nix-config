@@ -31,6 +31,7 @@
       vue
       java
       obsidian
+      noctalia
 
       self.unfree
     ];

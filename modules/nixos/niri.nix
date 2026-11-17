@@ -24,6 +24,8 @@
             value.${action} = n;
           }) (lib.range 0 9)
         );
+
+      noctaliaPkg = inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default;
     in
     {
       packages.myNiri = inputs.wrapper-modules.wrappers.niri.wrap {
@@ -31,7 +33,7 @@
 
         settings = {
           spawn-at-startup = [
-            (lib.getExe pkgs.noctalia)
+            (lib.getExe noctaliaPkg)
           ];
 
           xwayland-satellite.path = lib.getExe pkgs.xwayland-satellite;
@@ -67,11 +69,11 @@
           binds = {
             "Mod+T".spawn = lib.getExe pkgs.alacritty;
             "Mod+Q".close-window = _: { };
-            "Mod+S".spawn-sh = "${lib.getExe pkgs.noctalia} msg panel-toggle launcher";
-            "Mod+Space".spawn-sh = "${lib.getExe pkgs.noctalia} msg panel-toggle launcher";
+            "Mod+S".spawn-sh = "${lib.getExe noctaliaPkg} msg panel-toggle launcher";
+            "Mod+Space".spawn-sh = "${lib.getExe noctaliaPkg} msg panel-toggle launcher";
 
             # Lock
-            "Super+Alt+L".spawn-sh = "${lib.getExe pkgs.noctalia} msg session lock";
+            "Super+Alt+L".spawn-sh = "${lib.getExe noctaliaPkg} msg session lock";
 
             # Window resize
             "Mod+Left".focus-column-left = _: { };

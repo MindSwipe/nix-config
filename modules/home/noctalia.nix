@@ -1,4 +1,4 @@
-{ ... }: {
+{ inputs, ... }: {
   flake.homeModules.noctalia =
     {
       config,
@@ -7,12 +7,15 @@
       ...
     }:
     let
+      noctalia = inputs.noctalia;
       cfg = config.homeModules.noctalia;
     in
     {
-      options.homeModules.noctalia = {
-        enable = lib.mkEnableOption "Noctalia";
+      imports = [
+        noctalia.homeModules.default
+      ];
 
+      options.homeModules.noctalia = {
         package = lib.mkOption {
           default = pkgs.noctalia;
           example = pkgs.noctalia;
@@ -26,7 +29,7 @@
         };
       };
 
-      config = lib.mkIf cfg.enable {
+      config = {
         programs.noctalia = {
           enable = true;
           package = cfg.package;
@@ -50,12 +53,33 @@
             };
 
             shell.session.actions = [
-              # Add a button to the lock screen to suspend
+              {
+                action = "lock";
+                shortcut = "1";
+              }
+              {
+                action = "logout";
+                shortcut = "2";
+              }
+              {
+                action = "lock_and_suspend";
+                shortcut = "3";
+              }
+              {
+                action = "reboot";
+                shortcut = "4";
+              }
               {
                 action = "command";
-                label = "Sleep";
-                glyph = "bedtime";
+                label = "Hibernate";
+                glyph = "zzz";
                 command = "systemctl suspend";
+                shortcut = "5";
+              }
+              {
+                action = "shutdown";
+                shortcut = "6";
+                variant = "destructive";
               }
             ];
           }
