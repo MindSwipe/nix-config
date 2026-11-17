@@ -31,9 +31,35 @@
           enable = true;
           package = cfg.package;
 
-          # theme = {
-          #   mode = "dark";
-          # };
+          settings = {
+            idle.behavior = {
+              lock = {
+                # Lock after 5 minutes of idle
+                timeout = 300;
+                action = "lock";
+              };
+              suspend = {
+                # Suspend after 15 minutes of idle if not locked
+                timeout = 900;
+
+                # Suspend after 2 minutes of idle locked
+                locked_timeout = 120;
+                action = "suspend";
+                lock_before_suspend = true;
+              };
+            };
+
+            shell.session.actions = [
+              # Add a button to the lock screen to suspend
+              {
+                action = "command";
+                label = "Sleep";
+                glyph = "bedtime";
+                command = "systemctl suspend";
+              }
+            ];
+          }
+          // cfg.additionalSettings;
         };
       };
     };
